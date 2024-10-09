@@ -1,0 +1,30 @@
+syntax = "proto3";
+package gc.garcol.counter.proto;
+
+option java_outer_classname = "CounterProto";
+
+enum CommandID {
+  UNKNOWN = 0;  // Default value
+  INCREASE = 1;
+  DECREASE = 2;
+}
+
+message Command {
+  oneof command {
+    IncreaseCommand increase = 1;
+    DecreaseCommand decrease = 2;
+  }
+}
+
+message IncreaseCommand {
+  int32 id = 1;
+}
+
+message DecreaseCommand {
+  int32 id = 1;
+}
+
+message CounterQuery {
+  uint32 id = 1;
+  uint32 value = 2;
+}

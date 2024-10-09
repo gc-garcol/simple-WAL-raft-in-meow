@@ -1,0 +1,7 @@
+syntax = "proto3";
+package gc.garcol.raft.proto;
+option java_outer_classname = "LogProto";
+
+message LogEntry {
+  repeated bytes commands = 1;
+}
